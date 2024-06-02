@@ -24,6 +24,7 @@ for img in os.listdir(folder_path):
     print(f'({index} / {total}) ', end='')
     try:
         img_path = os.path.join(folder_path, img)
+        if not os.path.isfile(img_path): raise TypeError
 
         with open(img_path, 'rb') as img_file:
             img = Image(img_file)
@@ -38,6 +39,8 @@ for img in os.listdir(folder_path):
             new_image_file.write(img.get_file())
 
         print(f'成功更改 {img_path} 的 EXIF 時間戳。')
+    except TypeError:
+        print(f'{img_path} 並非一個檔案，跳過。')
     except:
         print(f'失敗，跳過 {img_path}。')
     index += 1
