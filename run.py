@@ -40,7 +40,7 @@ for img in os.listdir(folder_path):
 
         print(f'成功更改 {img_path} 的 EXIF 時間戳。')
     except TypeError:
-        print(f'{img_path} 並非一個檔案，跳過。')
-    except:
-        print(f'失敗，跳過 {img_path}。')
+        print(f'{img_path} 並非一個檔案。')
+    except Exception as e:
+        print(f'錯誤，跳過 {img_path} - {e}')
     index += 1
