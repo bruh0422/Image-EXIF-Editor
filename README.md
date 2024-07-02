@@ -7,8 +7,8 @@
 ## 前置作業
 ### 複製儲存庫
 ```bash
-git clone https://github.com/bruh0422/Photo-EXIF-Editor.git
-cd Photo-EXIF-Editor
+git clone https://github.com/bruh0422/Image-EXIF-Editor.git
+cd Image-EXIF-Editor
 ```
 
 ### 安裝必要檔案

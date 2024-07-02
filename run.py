@@ -20,27 +20,27 @@ while True:
 index = 1
 total = len(os.listdir(folder_path))
 
-for img in os.listdir(folder_path):
+for image in os.listdir(folder_path):
     print(f'({index} / {total}) ', end='')
     try:
-        img_path = os.path.join(folder_path, img)
-        if not os.path.isfile(img_path): raise TypeError
+        image_path = os.path.join(folder_path, image)
+        if not os.path.isfile(image_path): raise TypeError
 
-        with open(img_path, 'rb') as img_file:
-            img = Image(img_file)
+        with open(image_path, 'rb') as image_file:
+            image = Image(image_file)
 
-        new_time = (datetime.datetime.strptime(img.datetime, '%Y:%m:%d %H:%M:%S')+offset).strftime('%Y:%m:%d %H:%M:%S')
+        new_time = (datetime.datetime.strptime(image.datetime, '%Y:%m:%d %H:%M:%S')+offset).strftime('%Y:%m:%d %H:%M:%S')
 
-        if img.datetime is not None: img.set('datetime', new_time)
-        if img.datetime_original is not None: img.set('datetime_original', new_time)
-        if img.datetime_digitized is not None: img.set('datetime_digitized', new_time)
+        if image.datetime is not None: image.set('datetime', new_time)
+        if image.datetime_original is not None: image.set('datetime_original', new_time)
+        if image.datetime_digitized is not None: image.set('datetime_digitized', new_time)
 
-        with open(img_path, 'wb') as new_image_file:
-            new_image_file.write(img.get_file())
+        with open(image_path, 'wb') as new_image_file:
+            new_image_file.write(image.get_file())
 
-        print(f'成功更改 {img_path} 的 EXIF 時間戳。')
+        print(f'成功更改 {image_path} 的 EXIF 時間戳。')
     except TypeError:
-        print(f'{img_path} 並非一個檔案。')
+        print(f'{image_path} 並非一個檔案。')
     except Exception as e:
-        print(f'錯誤，跳過 {img_path} - {e}')
+        print(f'錯誤，跳過 {image_path} - {e}')
     index += 1
