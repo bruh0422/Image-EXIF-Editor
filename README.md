@@ -1,8 +1,8 @@
-# 相片 EXIF 編輯器
-給予時間偏移秒數，批量更改資料夾內的相片 EXIF 時間戳。
+# 圖片 EXIF 編輯器
+給予時間偏移秒數，批量更改資料夾內的圖片 EXIF 時間戳。
 
 ## 運作原理
-使用 `exif` 變更照片的 `datetime` `datetime_original` `datetime_digitized` 資料。
+使用 `exif` 變更圖片的 `datetime` `datetime_original` `datetime_digitized` 資料。
 
 ## 前置作業
 ### 複製儲存庫
